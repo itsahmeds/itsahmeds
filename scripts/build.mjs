@@ -87,6 +87,18 @@ weeks.forEach((v, i) => {
     ticks += `<text x="${x}" y="${by + bh + 18}" fill="${DIM}" font-size="10">${m}</text>`;
   }
 });
+// gridlines at quarter steps of the peak, labelled with the value they mark
+let grid = "";
+[0.25, 0.5, 0.75, 1].forEach((f) => {
+  const v = Math.round(max * f), y = by + bh - Math.round(f * bh) + 0.5;
+  grid += `<line x1="${bx}" y1="${y}" x2="${bx + 52 * (bw + gap) - gap}" y2="${y}" stroke="${LINE}" stroke-dasharray="2 4"/>`;
+  grid += `<text x="${bx + 52 * (bw + gap) + 6}" y="${y + 4}" fill="${DIM}" font-size="10">${v}</text>`;
+});
+const peakI = weeks.indexOf(max);
+const peakDate = weeks52[peakI].contributionDays[0].date;
+const peakLabel = `peak ${max} · week of ${new Date(peakDate + "T00:00:00Z").toLocaleString("en", { month: "short", day: "numeric", timeZone: "UTC" }).toLowerCase()}`;
+const peakX = Math.min(bx + peakI * (bw + gap), bx + 52 * (bw + gap) - 220);
+const peak = `<text x="${peakX}" y="${by - 12}" fill="${OUT}" font-size="11">${peakLabel}</text>`;
 const statY = by + bh + 62;
 const stat = (x, n, label) =>
   `<text x="${x}" y="${statY}" fill="${INK}" font-size="24" font-weight="700">${n}</text>` +
@@ -94,12 +106,14 @@ const stat = (x, n, label) =>
 const week = cal.weeks[cal.weeks.length - 1].contributionDays;
 const dotsY = statY + 42;
 let dots = "";
+const wd = ["s", "m", "t", "w", "t", "f", "s"];
 week.forEach((d, i) => {
   dots += `<rect x="${bx + i * 22}" y="${dotsY}" width="16" height="16" rx="3" fill="${GREEN}" fill-opacity="${d.contributionCount > 0 ? 0.9 : 0.15}"/>`;
+  dots += `<text x="${bx + i * 22 + 8}" y="${dotsY + 30}" text-anchor="middle" fill="${DIM}" font-size="10">${wd[i]}</text>`;
 });
 
 // section 2: stack + work (from profile.json)
-const secY = dotsY + 58;
+const secY = dotsY + 72;
 const lh = 22;
 let stack = `<text x="${bx}" y="${secY}" fill="${DIM}" font-size="11">stack</text>`;
 profile.stack.forEach(([k, v], i) => {
@@ -125,9 +139,12 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" 
     <text x="${bx}" y="112" fill="${OUT}" font-size="13">${esc(profile.line)}</text>
     <text x="${W - 36}" y="46" text-anchor="end" fill="${DIM}" font-size="11">regenerated ${stamp}</text>
     <text x="${W - 36}" y="62" text-anchor="end" fill="${DIM}" font-size="11">refreshes every 6h · private work counted, not shown</text>
+    <circle cx="${W - 36 - 372}" cy="58" r="3" fill="${GREEN}"><animate attributeName="fill-opacity" values="1;0.2;1" dur="2.4s" repeatCount="indefinite"/></circle>
 
     <text x="${bx}" y="${by - 12}" fill="${DIM}" font-size="11">contributions per week · last 52 weeks</text>
     <line x1="${bx}" y1="${by + bh + 0.5}" x2="${bx + 52 * (bw + gap) - gap}" y2="${by + bh + 0.5}" stroke="${LINE}"/>
+    ${grid}
+    ${peak}
     ${bars}
     ${ticks}
     ${stat(bx, total, "last 365 days")}
