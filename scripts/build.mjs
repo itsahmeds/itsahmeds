@@ -79,7 +79,11 @@ weeks.forEach((v, i) => {
   const x = bx + i * (bw + gap), y = by + bh - h;
   const last = i === weeks.length - 1;
   const op = v === 0 ? 0.22 : last ? 1 : 0.45 + 0.55 * (v / max);
-  bars += `<rect x="${x}" y="${y}" width="${bw}" height="${h}" rx="1.5" fill="${GREEN}" fill-opacity="${op.toFixed(2)}"/>`;
+  const t0 = (0.2 + i * 0.022).toFixed(3);
+  const breathe = last ? `<animate attributeName="fill-opacity" values="1;0.55;1" dur="2.4s" begin="${(0.2 + i * 0.022 + 0.6).toFixed(2)}s" repeatCount="indefinite"/>` : "";
+  bars += `<rect x="${x}" y="${by + bh}" width="${bw}" height="0" rx="1.5" fill="${GREEN}" fill-opacity="${op.toFixed(2)}">` +
+    `<animate attributeName="height" from="0" to="${h}" dur="0.5s" begin="${t0}s" fill="freeze" calcMode="spline" keySplines="0.2 0.8 0.2 1"/>` +
+    `<animate attributeName="y" from="${by + bh}" to="${y}" dur="0.5s" begin="${t0}s" fill="freeze" calcMode="spline" keySplines="0.2 0.8 0.2 1"/>${breathe}</rect>`;
   const first = weeks52[i].contributionDays[0].date;
   const prev = i > 0 ? weeks52[i - 1].contributionDays[0].date : null;
   if (!prev || first.slice(5, 7) !== prev.slice(5, 7)) {
@@ -100,9 +104,13 @@ const peakLabel = `peak ${max} · week of ${new Date(peakDate + "T00:00:00Z").to
 const peakX = Math.min(bx + peakI * (bw + gap), bx + 52 * (bw + gap) - 220);
 const peak = `<text x="${peakX}" y="${by - 12}" fill="${OUT}" font-size="11">${peakLabel}</text>`;
 const statY = by + bh + 62;
-const stat = (x, n, label) =>
-  `<text x="${x}" y="${statY}" fill="${INK}" font-size="24" font-weight="700">${n}</text>` +
-  `<text x="${x}" y="${statY + 18}" fill="${DIM}" font-size="11">${label}</text>`;
+let statI = 0;
+const stat = (x, n, label) => {
+  const b = (1.5 + statI++ * 0.12).toFixed(2);
+  return `<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="${b}s" fill="freeze"/>` +
+    `<text x="${x}" y="${statY}" fill="${INK}" font-size="24" font-weight="700">${n}</text>` +
+    `<text x="${x}" y="${statY + 18}" fill="${DIM}" font-size="11">${label}</text></g>`;
+};
 const week = cal.weeks[cal.weeks.length - 1].contributionDays;
 const dotsY = statY + 42;
 let dots = "";
@@ -129,7 +137,7 @@ profile.work.forEach(([k, v], i) => {
 const moreY = workY + 24 + profile.work.length * lh;
 work += `<text x="${bx + 200}" y="${moreY}" fill="${DIM}" font-size="12">${esc(profile.more)}</text>`;
 
-const H = moreY + 56;
+const H = moreY + 84;
 
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img"
   aria-label="itsahmeds. ${esc(profile.line)}. ${total} contributions in the last year, ${thisWeek} this week, current streak ${current} days, longest ${longest}. Stack: ${esc(profile.stack.map((s) => s[1]).join("; "))}. Work: ${esc(profile.work.map((w) => w[0]).join(", "))}. Regenerated ${stamp}.">
@@ -146,6 +154,9 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" 
     ${grid}
     ${peak}
     ${bars}
+    <rect x="${bx}" y="${by - 4}" width="2" height="${bh + 4}" fill="${GREEN}" fill-opacity="0.35">
+      <animate attributeName="x" from="${bx}" to="${bx + 52 * (bw + gap) - 2}" dur="7s" begin="1.2s" repeatCount="indefinite"/>
+    </rect>
     ${ticks}
     ${stat(bx, total, "last 365 days")}
     ${stat(bx + 190, last30, "last 30 days")}
@@ -159,6 +170,8 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" 
     ${stack}
     ${work}
 
+    <text x="${bx}" y="${H - 48}" fill="${OUT}" font-size="13">ahmedsheikh2654@gmail.com</text>
+    <text x="${W - 36}" y="${H - 48}" text-anchor="end" fill="${OUT}" font-size="13">linkedin.com/in/ahmed-hameed-037676253</text>
     <text x="${bx}" y="${H - 22}" fill="${DIM}" font-size="11">source: github contributions api + scripts/profile.json · built by .github/workflows/activity.yml</text>
     <text x="${W - 36}" y="${H - 22}" text-anchor="end" fill="${DIM}" font-size="11">github.com/${LOGIN}</text>
   </g>
