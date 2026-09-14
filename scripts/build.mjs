@@ -137,7 +137,7 @@ profile.work.forEach(([k, v], i) => {
 const moreY = workY + 24 + profile.work.length * lh;
 work += `<text x="${bx + 200}" y="${moreY}" fill="${DIM}" font-size="12">${esc(profile.more)}</text>`;
 
-const H = moreY + 84;
+const H = moreY + 62;
 
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img"
   aria-label="itsahmeds. ${esc(profile.line)}. ${total} contributions in the last year, ${thisWeek} this week, current streak ${current} days, longest ${longest}. Stack: ${esc(profile.stack.map((s) => s[1]).join("; "))}. Work: ${esc(profile.work.map((w) => w[0]).join(", "))}. Regenerated ${stamp}.">
@@ -169,10 +169,8 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" 
     ${stack}
     ${work}
 
-    <text x="${bx}" y="${H - 48}" fill="${OUT}" font-size="13">ahmedsheikh2654@gmail.com</text>
-    <text x="${W - 36}" y="${H - 48}" text-anchor="end" fill="${OUT}" font-size="13">linkedin.com/in/ahmed-hameed-037676253</text>
-    <text x="${bx}" y="${H - 22}" fill="${DIM}" font-size="11">source: github contributions api + scripts/profile.json · built by .github/workflows/activity.yml</text>
-    <text x="${W - 36}" y="${H - 22}" text-anchor="end" fill="${DIM}" font-size="11">github.com/${LOGIN}</text>
+    <text x="${bx}" y="${H - 26}" fill="${OUT}" font-size="13">ahmedsheikh2654@gmail.com</text>
+    <text x="${W - 36}" y="${H - 26}" text-anchor="end" fill="${OUT}" font-size="13">linkedin.com/in/ahmed-hameed-037676253</text>
   </g>
 </svg>
 `;
