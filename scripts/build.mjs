@@ -145,9 +145,8 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" 
   <g ${mono}>
     <g fill="${GREEN}" shape-rendering="crispEdges">${name}</g>
     <text x="${bx}" y="112" fill="${OUT}" font-size="13">${esc(profile.line)}</text>
-    <text x="${W - 36}" y="46" text-anchor="end" fill="${DIM}" font-size="11">regenerated ${stamp}</text>
-    <text x="${W - 36}" y="62" text-anchor="end" fill="${DIM}" font-size="11">refreshes every 6h · private work counted, not shown</text>
-    <circle cx="${W - 36 - 372}" cy="58" r="3" fill="${GREEN}"><animate attributeName="fill-opacity" values="1;0.2;1" dur="2.4s" repeatCount="indefinite"/></circle>
+    <text x="${W - 36}" y="112" text-anchor="end" fill="${DIM}" font-size="11"><tspan fill="${GREEN}">●<animate attributeName="fill-opacity" values="1;0.2;1" dur="2.4s" repeatCount="indefinite"/></tspan> live · regenerated ${stamp} · every 6h</text>
+    <text x="${W - 36}" y="128" text-anchor="end" fill="${DIM}" font-size="11">private work counted, not shown</text>
 
     <text x="${bx}" y="${by - 12}" fill="${DIM}" font-size="11">contributions per week · last 52 weeks</text>
     <line x1="${bx}" y1="${by + bh + 0.5}" x2="${bx + 52 * (bw + gap) - gap}" y2="${by + bh + 0.5}" stroke="${LINE}"/>
