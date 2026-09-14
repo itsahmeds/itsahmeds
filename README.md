@@ -9,7 +9,7 @@ The unusual part is that I stopped filing tickets for the tooling I need.
 
 Most growth people wait on engineering. I got tired of waiting, so I learned to write specifications precise enough that AI agents can build against them. The dashboards, trackers and pipelines my team runs on are things I shipped myself.
 
-This account is a year old. There are 36 repositories in it. Most are private, because internal tooling is internal — but here's what they are.
+This account is a year old and holds thirty-odd repositories. Most are private, because internal tooling is internal — but here's what they are.
 
 ---
 
@@ -35,11 +35,10 @@ I don't vibe-code. I built a framework specifically to stop myself from doing th
 **SDD — spec-driven development.** A twenty-step gated chain:
 
 ```
-problem → research → requirements → platform → blueprint → UX → architecture → structure → roadmap
-                                         ↓
-                    feature → tasks → build → verify → ship ──┐
-                        ↑                                     │
-                        └─────────────────────────────────────┘
+ONCE   problem → research → requirements → platform → blueprint
+       → UX → architecture → structure → roadmap
+
+LOOP   feature → tasks → build → verify → ship → (back to feature)
 ```
 
 Nothing gets built until the document in front of it is approved. That's enforced with hooks, not willpower.
@@ -50,9 +49,9 @@ The point isn't ceremony. It's that a non-engineer directing agents needs **more
 
 ## Stack
 
-**Ship:** Next.js · React · TypeScript · Tailwind · Prisma
-**Scrape, score and schedule:** Python · Django · Shell
-**Direct:** Claude Code · spec-driven workflows · custom agent skill chains
+- **Ship** — Next.js · React · TypeScript · Tailwind · Prisma
+- **Scrape, score and schedule** — Python · Django · Shell
+- **Direct** — Claude Code · spec-driven workflows · custom agent skill chains
 
 ---
 
