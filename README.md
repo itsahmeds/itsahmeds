@@ -1,13 +1,18 @@
-<div align="center">
+<img src="assets/hero.svg" width="100%" alt="Terminal session. whoami: ahmed, software engineer by degree, marketer by trade. ls work: publishing-cms, content-pipeline, editorial-review, rank-tracker, review-scraper, serp-research, cro-dashboards, pricing-research, crm, website-cms, attendance-app and 30 more, private. 1,725 commits. crontab: n8n and Make automations for lead routing, sheet refreshes and publishing alerts.">
 
-<img src="assets/terminal.svg" width="900" alt="Terminal session. whoami: ahmed, software engineer by degree, marketer by trade. Stack: n8n and make.com for automation, claude code for spec-driven builds, next.js, typescript, tailwind, prisma, supabase, python, fastapi, postgres. Work: publishing-cms, content-pipeline, editorial-review, rank-tracker, review-scraper, serp-research, cro-dashboards, pricing-research, crm, website-cms and 30 more, mostly private. 1,725 commits.">
+I run growth at a B2B software marketplace and got tired of waiting on the engineering backlog, so I build the tooling myself. n8n and Make for the plumbing, Claude Code for the products, a spec before every build.
 
-<img src="assets/neofetch.svg" width="900" alt="neofetch. Host: growth team at a B2B software marketplace. Kernel: BS Software Engineering. Uptime: 12 months on GitHub. Packages: 40 repos, 37 private. Shell: Claude Code. DE: n8n, Make.com. CPU: Next.js, TypeScript, Python. Memory: 1,725 commits.">
+<p>
+  <a href="https://n8n.io"><img src="https://img.shields.io/badge/n8n-0A0E0C?style=flat-square&logo=n8n&logoColor=5CF27A" alt="n8n"></a>
+  <a href="https://www.make.com"><img src="https://img.shields.io/badge/Make-0A0E0C?style=flat-square&logo=make&logoColor=5CF27A" alt="Make"></a>
+  <a href="https://claude.com/claude-code"><img src="https://img.shields.io/badge/Claude_Code-0A0E0C?style=flat-square&logo=claude&logoColor=5CF27A" alt="Claude Code"></a>
+</p>
 
-<br>
+<a href="https://skillicons.dev"><img src="https://skillicons.dev/icons?i=nextjs,react,ts,tailwind,prisma,supabase,python,fastapi,postgres,vercel,git,obsidian&theme=dark" alt="Next.js, React, TypeScript, Tailwind, Prisma, Supabase, Python, FastAPI, Postgres, Vercel, Git, Obsidian"></a>
 
-<a href="mailto:ahmedsheikh2654@gmail.com"><img src="https://img.shields.io/badge/mail-0A0E0C?style=flat-square&logo=gmail&logoColor=5CF27A" alt="email"></a>
-&nbsp;
-<a href="https://www.linkedin.com/in/ahmed-hameed-037676253/"><img src="https://img.shields.io/badge/linkedin-0A0E0C?style=flat-square&logo=linkedin&logoColor=5CF27A" alt="linkedin"></a>
+<p>
+  <a href="mailto:ahmedsheikh2654@gmail.com"><img src="https://img.shields.io/badge/mail-0A0E0C?style=flat-square&logo=gmail&logoColor=5CF27A" alt="email"></a>
+  <a href="https://www.linkedin.com/in/ahmed-hameed-037676253/"><img src="https://img.shields.io/badge/linkedin-0A0E0C?style=flat-square&logo=linkedin&logoColor=5CF27A" alt="linkedin"></a>
+</p>
 
-</div>
+<sub>last updated 2026-09-14</sub>
