@@ -1,68 +1,78 @@
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.svg">
-  <img alt="itsahmeds — operator, not an engineer. I write the specs, agents build the tools." src="assets/banner-light.svg" width="900">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/hero-dark.svg">
+  <img alt="Ahmed. Software engineer by degree, marketer by trade. I build the tools instead of waiting for them." src="assets/hero-light.svg" width="900">
 </picture>
 
-### I run organic growth at a B2B software marketplace — SEO, content operations, conversion.
+### Let's state the obvious. Marketing teams always have more ideas than engineering has hours.
 
-The unusual part is that I stopped filing tickets for the tooling I need.
+Every growth person knows the feeling. You spot the thing that would move the needle, you write the ticket, and it lands in a backlog behind eleven other tickets. Two quarters later it's still there.
 
-Most growth people wait on engineering. I got tired of waiting, so I learned to write specifications precise enough that AI agents can build against them. The dashboards, trackers and pipelines my team runs on are things I shipped myself.
+So I stopped filing tickets and started building the stuff myself.
 
-This account is a year old and holds thirty-odd repositories. Most are private, because internal tooling is internal — but here's what they are.
+I run SEO, content operations and conversion for a B2B software marketplace. I have a software engineering degree. And I spend a lot of my week inside n8n, Make.com and Claude Code, turning "wouldn't it be nice if" into things that actually run in production.
 
----
+This account is where that work lives. Most of it is private (internal tooling is internal), but here's what's in there.
 
-## What's in there
+## What I've actually shipped
 
-| System | The problem it solved | Built with |
+| | What it does | Under the hood |
 | :--- | :--- | :--- |
-| **Rank tracker** | Per-seat SEO platforms get expensive fast, and none of them tracked the cuts we actually cared about | Python |
-| **SERP & vendor research** | Competitor and vendor intelligence pulled off the SERP at volume, on a schedule, instead of by hand | TypeScript |
-| **CRO dashboards** | GA4 and on-site conversion data lived in different tabs, so nobody looked at either | Next.js 16 · React 19 · Tailwind v4 |
-| **Content ops pipeline** | Briefs, drafts, QA and publishing tracked across ten tools and one prayer | Python |
-| **Inbound ops** | Lead capture and routing that doesn't need a CRM seat for every person who touches it | Next.js · Prisma |
-| **Vendor directory & review tooling** | Vendor profiles, review queues, and automated QA on both | Next.js · TypeScript |
-| **Pricing research** | Competitive pricing, pulled and normalised, instead of copied into a spreadsheet every quarter | TypeScript |
-| **CMS extensions** | The editor didn't do the one thing the content team needed, so I made it | JavaScript |
+| **Publishing control system** | One pipeline for how pages get requested, planned, written and published. Tracks 24,000+ pages across 6 content types with live CMS sync, two-way Jira, and AI duplicate detection so nobody writes the same page twice. | Next.js 16 · Prisma 7 · Supabase · BullMQ · Playwright |
+| **Content ops pipeline** | Finds pages that are going stale, refreshes them on a schedule, and pings the team when something needs a human. My biggest project by a mile (480+ commits). | Python · Next.js · Postgres |
+| **AI editorial review** | Upload a draft, get a scored critique against a 7-metric rubric with the exact passage, the fix, and the reasoning. Exports straight back as Word comments. 49 tests passing. | FastAPI · OpenRouter · Railway |
+| **Rank tracker** | 1,000 keywords a run, 6 countries, desktop and mobile. Tracks AI Overviews and featured snippets too, because that's where the clicks went. | FastAPI · Next.js · DataForSEO |
+| **Review extraction** | Pulls every review of any vendor off G2, Capterra and Software Advice in one go. Batched so it never trips the serverless timeout. | Next.js 16 · Firecrawl · Upstash · Vercel Blob |
+| **SERP vendor research** | Type a keyword. It reads the SERP, picks the real listicles out of the noise, scrapes them, and hands back a ranked vendor list. | Next.js · SerpAPI · Firecrawl · Claude |
+| **CRO dashboards** | GA4 and on-site conversion data finally in the same place, so people actually look at it. | Next.js 16 · React 19 · Tailwind v4 |
+| **Pricing research** | Competitor pricing pulled and normalised in one click instead of a quarterly spreadsheet marathon. | Next.js · TypeScript |
 
----
+And a bunch of smaller things: a CMS editor extension, a vendor checklist app, a pay-per-lead vendor directory, a QA checker. The unglamorous stuff that saves someone an hour every day.
+
+## The glue is automation
+
+Here's the thing most people miss about all of the above. The apps are only half of it.
+
+The other half is n8n and Make.com workflows quietly moving data between them. Form fills that become CRM records. Scrape jobs that kick off on a schedule. Slack pings when a page goes live. Sheets that update themselves. None of that is in a repo, because it doesn't need to be. It just runs.
+
+If you're a marketer and you haven't opened n8n yet, that's your homework. It's the most useful skill I've picked up in years.
 
 ## How it gets built
 
-I don't vibe-code. I built a framework specifically to stop myself from doing that.
+I don't vibe-code. I tried it. It falls apart the second a project gets bigger than a weekend.
 
-**SDD — spec-driven development.** A twenty-step gated chain:
+So I built a framework to stop myself: a 20-step chain of Claude Code skills I call SDD, spec-driven development.
 
-```
-ONCE   problem → research → requirements → platform → blueprint
-       → UX → architecture → structure → roadmap
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/sdd-dark.svg">
+  <img alt="The SDD chain. Once: problem, research, requirements, platform, blueprint, UX, architecture, structure, roadmap. Then a loop per feature: feature, tasks, build, verify, ship, repeat." src="assets/sdd-light.svg" width="900">
+</picture>
 
-LOOP   feature → tasks → build → verify → ship → (back to feature)
-```
+Why so much process for a one-person shop?
 
-Nothing gets built until the document in front of it is approved. That's enforced with hooks, not willpower.
+Because when you're directing agents, a bad decision at the spec stage costs you an hour. The same bad decision discovered halfway through a build costs you a week. I'd rather catch it where it's cheap.
 
-The point isn't ceremony. It's that a non-engineer directing agents needs **more** process discipline than an engineer typing, not less — because I can't catch a bad decision by feel halfway through an implementation. So I catch it in the spec, where it's cheap.
+## On the side
 
----
+Outside the day job I take on builds for other people, and I'm building something of my own.
 
-## Stack
+A full CRM for a lead-gen agency: email and WhatsApp outreach, LinkedIn decision-maker search, Google Maps lead scraping, multi-tenant workspaces. Live and in daily use.
 
-- **Ship** — Next.js · React · TypeScript · Tailwind · Prisma
-- **Scrape, score and schedule** — Python · Django · Shell
-- **Direct** — Claude Code · spec-driven workflows · custom agent skill chains
+A company website with its own CMS. Next.js, 250+ commits, deployed on Railway.
 
----
+An attendance app with WiFi and geofence check-ins, owner/admin/employee roles, everything managed from the phone. Node and React Native.
 
-## On the public shelf
+And a startup I'm building from the spec up. I'm the founder. Claude Code agents are the technical co-founder. 180+ commits of specs, decision records and a multi-locale foundation before a single marketing page went live. More on that when it launches.
 
-**[food-supply-chain-forecaster](https://github.com/itsahmeds/food-supply-chain-forecaster)** — my computer science final year project. AI-driven demand forecasting for food supply chain management: Django, a forecasting engine, inventory and reporting modules, and synthetic data generation for evaluation.
+Plus my second brain: an Obsidian vault wired into Claude Code with a CLAUDE.md. Weekly reflections, experiments, wins. The world forgets. I don't.
 
----
+## Out in the open
 
-## Talk to me
+**[food-supply-chain-forecaster](https://github.com/itsahmeds/food-supply-chain-forecaster)** is my final year project. AI-driven demand forecasting for food supply chains: Django, a forecasting engine, inventory and reporting modules, and synthetic data generation so you can actually test it.
 
-If you work in growth or content and you've been told *"engineering doesn't have bandwidth this quarter"* — there is another path. I'm happy to talk about what actually worked, and about the three weeks I wasted finding out what doesn't.
+## Say hi
 
-<sub>Specs first. Agents second. Ship anyway.</sub>
+If you're in growth or content and you've ever been told "engineering doesn't have bandwidth this quarter", I promise there's another way. Happy to talk shop.
+
+📧 [ahmedsheikh2654@gmail.com](mailto:ahmedsheikh2654@gmail.com) &nbsp;·&nbsp; 💼 [LinkedIn](https://www.linkedin.com/in/ahmed-hameed-037676253/)
+
+<sub>Automate the boring bits. Spec the rest. Ship anyway.</sub>
