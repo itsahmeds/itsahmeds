@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="500" viewBox="0 0 900 500" role="img" aria-label="A terminal. whoami: ahmed, software engineer by degree, marketer by trade, automation addict by choice. Stack: n8n, make.com, claude code, next.js, python, supabase, firecrawl. Builds: rank tracker, CRO dashboards, review scraper, SERP research, content pipeline, publishing CMS, CRM and 30 more. Uptime: 1 year on github, 37 repos, 1,700 plus commits, 0 tickets filed. Motto: automate the boring bits, spec the rest, ship anyway.">
+  <defs>
+    <style>
+      text { font-family: "Cascadia Code", "Fira Code", "JetBrains Mono", Menlo, Consolas, "DejaVu Sans Mono", monospace; }
+      .ascii { fill: #00FF41; font-size: 12.5px; }
+      .p  { fill: #00FF41; font-size: 14px; font-weight: 700; }
+      .c  { fill: #E8FFE8; font-size: 14px; }
+      .o  { fill: #7CFC98; font-size: 14px; }
+      .d  { fill: #3E8E4E; font-size: 14px; }
+      .k  { fill: #00FF41; font-size: 14px; }
+      .t  { fill: #3E8E4E; font-size: 12px; }
+      .hide { opacity: 0; }
+    </style>
+    <filter id="glow" x="-5%" y="-20%" width="110%" height="140%">
+      <feGaussianBlur stdDeviation="1.6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <pattern id="scan" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="2" fill="#000" fill-opacity="0.18"/>
+    </pattern>
+
+    <clipPath id="c1"><rect x="54" y="216" width="0" height="22"><animate attributeName="width" from="0" to="56"  dur="0.45s" begin="0.6s" fill="freeze"/></rect></clipPath>
+    <clipPath id="c2"><rect x="54" y="260" width="0" height="22"><animate attributeName="width" from="0" to="108" dur="0.85s" begin="2.3s" fill="freeze"/></rect></clipPath>
+    <clipPath id="c3"><rect x="54" y="304" width="0" height="22"><animate attributeName="width" from="0" to="100" dur="0.8s"  begin="4.3s" fill="freeze"/></rect></clipPath>
+    <clipPath id="c4"><rect x="54" y="370" width="0" height="22"><animate attributeName="width" from="0" to="56"  dur="0.45s" begin="6.4s" fill="freeze"/></rect></clipPath>
+    <clipPath id="c5"><rect x="54" y="414" width="0" height="22"><animate attributeName="width" from="0" to="100" dur="0.8s"  begin="8.0s" fill="freeze"/></rect></clipPath>
+  </defs>
+
+  <rect x="0.5" y="0.5" width="899" height="499" rx="12" fill="#070A07" stroke="#1E3A24"/>
+  <rect x="0.5" y="0.5" width="899" height="38" rx="12" fill="#0E1A10"/>
+  <rect x="0.5" y="26" width="899" height="13" fill="#0E1A10"/>
+  <line x1="0.5" y1="38.5" x2="899.5" y2="38.5" stroke="#1E3A24"/>
+  <circle cx="22" cy="19.5" r="5.5" fill="#FF5F57"/><circle cx="42" cy="19.5" r="5.5" fill="#FEBC2E"/><circle cx="62" cy="19.5" r="5.5" fill="#28C840"/>
+  <text class="t" x="450" y="24" text-anchor="middle">ahmed@github: ~</text>
+
+  <g class="ascii" filter="url(#glow)" xml:space="preserve">
+    <text x="36" y="72">██╗████████╗███████╗ █████╗ ██╗  ██╗███╗   ███╗███████╗██████╗ ███████╗</text>
+    <text x="36" y="88">██║╚══██╔══╝██╔════╝██╔══██╗██║  ██║████╗ ████║██╔════╝██╔══██╗██╔════╝</text>
+    <text x="36" y="104">██║   ██║   ███████╗███████║███████║██╔████╔██║█████╗  ██║  ██║███████╗</text>
+    <text x="36" y="120">██║   ██║   ╚════██║██╔══██║██╔══██║██║╚██╔╝██║██╔══╝  ██║  ██║╚════██║</text>
+    <text x="36" y="136">██║   ██║   ███████║██║  ██║██║  ██║██║ ╚═╝ ██║███████╗██████╔╝███████║</text>
+    <text x="36" y="152">╚═╝   ╚═╝   ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝╚═════╝ ╚══════╝</text>
+  </g>
+  <text class="d" x="36" y="184">// marketer who got tired of waiting for engineering</text>
+
+  <g>
+    <text class="p hide" x="36" y="232">$<set attributeName="opacity" to="1" begin="0.6s"/></text>
+    <text class="c" x="54" y="232" clip-path="url(#c1)">whoami</text>
+    <text class="o hide" x="36" y="254">ahmed. software engineer by degree, marketer by trade, automation addict by choice.<set attributeName="opacity" to="1" begin="1.4s"/></text>
+  </g>
+
+  <g>
+    <text class="p hide" x="36" y="276">$<set attributeName="opacity" to="1" begin="2.3s"/></text>
+    <text class="c" x="54" y="276" clip-path="url(#c2)">cat ~/.stack</text>
+    <text class="o hide" x="36" y="298"><tspan class="k">n8n</tspan>  <tspan class="k">make.com</tspan>  <tspan class="k">claude-code</tspan>  next.js  typescript  python  supabase  firecrawl<set attributeName="opacity" to="1" begin="3.4s"/></text>
+  </g>
+
+  <g>
+    <text class="p hide" x="36" y="320">$<set attributeName="opacity" to="1" begin="4.3s"/></text>
+    <text class="c" x="54" y="320" clip-path="url(#c3)">ls ~/builds</text>
+    <text class="o hide" x="36" y="342">rank-tracker/  cro-dashboards/  review-scraper/  serp-research/  content-pipeline/<set attributeName="opacity" to="1" begin="5.4s"/></text>
+    <text class="o hide" x="36" y="364">publishing-cms/  crm/  pricing-research/  ai-editor/  <tspan class="d">... +30 more, most of them private</tspan><set attributeName="opacity" to="1" begin="5.4s"/></text>
+  </g>
+
+  <g>
+    <text class="p hide" x="36" y="386">$<set attributeName="opacity" to="1" begin="6.4s"/></text>
+    <text class="c" x="54" y="386" clip-path="url(#c4)">uptime</text>
+    <text class="o hide" x="36" y="408">1 year on github  ·  37 repos  ·  1,700+ commits  ·  0 tickets filed<set attributeName="opacity" to="1" begin="7.2s"/></text>
+  </g>
+
+  <g>
+    <text class="p hide" x="36" y="430">$<set attributeName="opacity" to="1" begin="8.0s"/></text>
+    <text class="c" x="54" y="430" clip-path="url(#c5)">echo $MOTTO</text>
+    <text class="o hide" x="36" y="452">automate the boring bits. spec the rest. ship anyway.<set attributeName="opacity" to="1" begin="9.1s"/></text>
+  </g>
+
+  <g class="hide">
+    <set attributeName="opacity" to="1" begin="9.8s"/>
+    <text class="p" x="36" y="478">$</text>
+    <rect x="54" y="466" width="9" height="15" fill="#00FF41">
+      <animate attributeName="opacity" values="1;1;0;0" dur="1.1s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+
+  <rect x="0.5" y="39" width="899" height="460" fill="url(#scan)" pointer-events="none"/>
+</svg>
