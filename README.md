@@ -1,6 +1,6 @@
 <img src="assets/hero.svg" width="100%" alt="Terminal session. whoami: ahmed, software engineer by degree, marketer by trade. ls work: publishing-cms, content-pipeline, editorial-review, rank-tracker, review-scraper, serp-research, cro-dashboards, pricing-research, crm, website-cms, attendance-app and 30 more, private. 1,725 commits. crontab: n8n and Make automations for lead routing, sheet refreshes and publishing alerts.">
 
-I build things and I solve problems. I'm also lazy in the useful sense: if something takes three steps I'll happily spend an afternoon making it one, as long as that one step still works every time. Most of what's in here started as a small annoyance.
+I build things and I solve problems.
 
 <p>
   <a href="https://n8n.io"><img src="https://img.shields.io/badge/n8n-0A0E0C?style=flat-square&logo=n8n&logoColor=5CF27A" alt="n8n"></a>
