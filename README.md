@@ -1,4 +1,4 @@
-<img src="assets/activity.svg" width="100%" alt="itsahmeds. Live activity board: contributions per week over the last 52 weeks, totals for the last 365 and 30 days, current and longest streak, busiest weekday, and this week day by day. Regenerated every six hours by a GitHub Action from the contributions API.">
+<img src="assets/activity.svg" width="100%" alt="itsahmeds. Live activity board: contributions per week over the last 52 weeks, totals for the last 365 and 30 days, current and longest streak, busiest weekday, and this week day by day. Snapshot drawn from the contributions API.">
 
 I build things and I solve problems.
 

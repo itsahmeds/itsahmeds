@@ -50,7 +50,7 @@ const byWeekday = [0, 0, 0, 0, 0, 0, 0];
 for (const d of days) byWeekday[d.weekday] += d.contributionCount;
 const busiest = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"][byWeekday.indexOf(Math.max(...byWeekday))];
 const activeDays = days.filter((d) => d.contributionCount > 0).length;
-const stamp = new Date().toISOString().slice(0, 16).replace("T", " ") + " utc";
+const stamp = new Date().toISOString().slice(0, 10);
 
 // ---------- drawing ----------
 const W = 900;
@@ -118,13 +118,13 @@ work += `<text x="${bx + 200}" y="${moreY}" fill="${DIM}" font-size="12">${esc(p
 const H = moreY + 56;
 
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img"
-  aria-label="itsahmeds. ${esc(profile.line)}. ${total} contributions in the last year, ${thisWeek} this week, current streak ${current} days, longest ${longest}. Stack: ${esc(profile.stack.map((s) => s[1]).join("; "))}. Work: ${esc(profile.work.map((w) => w[0]).join(", "))}. Regenerated ${stamp}.">
+  aria-label="itsahmeds. ${esc(profile.line)}. ${total} contributions in the last year, ${thisWeek} this week, current streak ${current} days, longest ${longest}. Stack: ${esc(profile.stack.map((s) => s[1]).join("; "))}. Work: ${esc(profile.work.map((w) => w[0]).join(", "))}. Snapshot ${stamp}.">
   <rect x="0.5" y="0.5" width="${W - 1}" height="${H - 1}" rx="10" fill="${BG}" stroke="${LINE}"/>
   <g ${mono}>
     <g fill="${GREEN}" shape-rendering="crispEdges">${name}</g>
     <text x="${bx}" y="112" fill="${OUT}" font-size="13">${esc(profile.line)}</text>
-    <text x="${W - 36}" y="46" text-anchor="end" fill="${DIM}" font-size="11">regenerated ${stamp}</text>
-    <text x="${W - 36}" y="62" text-anchor="end" fill="${DIM}" font-size="11">refreshes every 6h · private work counted, not shown</text>
+    <text x="${W - 36}" y="46" text-anchor="end" fill="${DIM}" font-size="11">snapshot · ${stamp}</text>
+    <text x="${W - 36}" y="62" text-anchor="end" fill="${DIM}" font-size="11">private work counted, not shown</text>
 
     <text x="${bx}" y="${by - 12}" fill="${DIM}" font-size="11">contributions per week · last 52 weeks</text>
     <line x1="${bx}" y1="${by + bh + 0.5}" x2="${bx + 52 * (bw + gap) - gap}" y2="${by + bh + 0.5}" stroke="${LINE}"/>
@@ -142,7 +142,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" 
     ${stack}
     ${work}
 
-    <text x="${bx}" y="${H - 22}" fill="${DIM}" font-size="11">source: github contributions api + scripts/profile.json · built by .github/workflows/activity.yml</text>
+    <text x="${bx}" y="${H - 22}" fill="${DIM}" font-size="11">source: github contributions api + scripts/profile.json · drawn by scripts/build.mjs</text>
     <text x="${W - 36}" y="${H - 22}" text-anchor="end" fill="${DIM}" font-size="11">github.com/${LOGIN}</text>
   </g>
 </svg>
