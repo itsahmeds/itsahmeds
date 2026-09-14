@@ -1,6 +1,6 @@
 <img src="assets/hero.svg" width="100%" alt="Terminal session. whoami: ahmed, software engineer by degree, marketer by trade. ls work: publishing-cms, content-pipeline, editorial-review, rank-tracker, review-scraper, serp-research, cro-dashboards, pricing-research, crm, website-cms, attendance-app and 30 more, private. 1,725 commits. crontab: n8n and Make automations for lead routing, sheet refreshes and publishing alerts.">
 
-I run growth at a B2B software marketplace and got tired of waiting on the engineering backlog, so I build the tooling myself. n8n and Make for the plumbing, Claude Code for the products, a spec before every build.
+I build things and I solve problems. I'm also lazy in the way good engineers are lazy: if a job takes three steps, I want it in one, and I want that one step to work every time. Fast is easy. Fast and reliable is the whole job, and quality is the constraint I start from, not the polish I add at the end.
 
 <p>
   <a href="https://n8n.io"><img src="https://img.shields.io/badge/n8n-0A0E0C?style=flat-square&logo=n8n&logoColor=5CF27A" alt="n8n"></a>
