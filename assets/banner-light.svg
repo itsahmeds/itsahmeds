@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300" role="img" aria-label="itsahmeds build log terminal banner">
+  <defs>
+    <style>
+      .m { font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace; }
+      .p  { fill: #1A7F37; font-size: 15px; }
+      .c  { fill: #1F2328;   font-size: 15px; }
+      .o  { fill: #656D76;  font-size: 15px; }
+      .hi { fill: #1F2328;   font-size: 15px; font-weight: 600; }
+      .bl { fill: #0969DA;   font-size: 15px; }
+      .t  { fill: #656D76;  font-size: 13px; }
+    </style>
+  </defs>
+
+  <rect x="1" y="1" width="898" height="298" rx="12" fill="#FFFFFF" stroke="#D0D7DE" stroke-width="1.5"/>
+  <path d="M1 13 A12 12 0 0 1 13 1 H887 A12 12 0 0 1 899 13 V42 H1 Z" fill="#F6F8FA"/>
+  <line x1="1" y1="42" x2="899" y2="42" stroke="#D0D7DE" stroke-width="1.5"/>
+
+  <circle cx="26" cy="22" r="6" fill="#FF5F57"/>
+  <circle cx="48" cy="22" r="6" fill="#FEBC2E"/>
+  <circle cx="70" cy="22" r="6" fill="#28C840"/>
+  <text class="m t" x="450" y="27" text-anchor="middle">itsahmeds@github: ~/build-log</text>
+
+  <text class="m" x="30" y="82"><tspan class="p">$</tspan><tspan class="c" dx="10">whoami</tspan></text>
+  <text class="m o" x="30" y="108">operator, not an engineer &#8212; I write the specs, agents build the tools.</text>
+
+  <text class="m" x="30" y="150"><tspan class="p">$</tspan><tspan class="c" dx="10">ls ~/shipped</tspan></text>
+  <text class="m hi" x="30" y="176">rank-tracker  cro-dashboards  content-ops  lead-capture  vendor-tooling</text>
+
+  <text class="m" x="30" y="218"><tspan class="p">$</tspan><tspan class="c" dx="10">cat stack.txt</tspan></text>
+  <text class="m bl" x="30" y="244">Next.js &#183; React &#183; TypeScript &#183; Tailwind &#183; Prisma &#183; Python &#183; Django</text>
+
+  <text class="m" x="30" y="278"><tspan class="p">$</tspan><tspan class="c" dx="10">&#9612;</tspan></text>
+</svg>
