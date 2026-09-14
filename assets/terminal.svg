@@ -102,16 +102,16 @@
 
     <text class="pr h" x="36" y="253">❯<set attributeName="opacity" to="1" begin="1.9s"/></text>
     <text class="cmd" x="56" y="253" clip-path="url(#c2)">cat ~/.stack</text>
-    <text class="h" x="36" y="275"><tspan class="key">automation  </tspan><tspan class="out">n8n · make.com</tspan><set attributeName="opacity" to="1" begin="2.8s"/></text>
-    <text class="h" x="36" y="297"><tspan class="key">agents      </tspan><tspan class="out">claude code · spec-driven builds</tspan><set attributeName="opacity" to="1" begin="2.8s"/></text>
-    <text class="h" x="36" y="319"><tspan class="key">web         </tspan><tspan class="out">next.js · typescript · tailwind · prisma · supabase</tspan><set attributeName="opacity" to="1" begin="2.8s"/></text>
-    <text class="h" x="36" y="341"><tspan class="key">data        </tspan><tspan class="out">python · fastapi · postgres</tspan><set attributeName="opacity" to="1" begin="2.8s"/></text>
+    <text class="h" x="36" y="275"><tspan class="key">automation</tspan><tspan class="out" x="160">n8n · make.com</tspan><set attributeName="opacity" to="1" begin="2.8s"/></text>
+    <text class="h" x="36" y="297"><tspan class="key">agents</tspan><tspan class="out" x="160">claude code · spec-driven builds</tspan><set attributeName="opacity" to="1" begin="2.8s"/></text>
+    <text class="h" x="36" y="319"><tspan class="key">web</tspan><tspan class="out" x="160">next.js · typescript · tailwind · prisma · supabase</tspan><set attributeName="opacity" to="1" begin="2.8s"/></text>
+    <text class="h" x="36" y="341"><tspan class="key">data</tspan><tspan class="out" x="160">python · fastapi · postgres</tspan><set attributeName="opacity" to="1" begin="2.8s"/></text>
 
     <text class="pr h" x="36" y="371">❯<set attributeName="opacity" to="1" begin="3.7s"/></text>
     <text class="cmd" x="56" y="371" clip-path="url(#c3)">ls ~/work</text>
-    <text class="out h" x="36" y="393">publishing-cms      content-pipeline    editorial-review    rank-tracker<set attributeName="opacity" to="1" begin="4.5s"/></text>
-    <text class="out h" x="36" y="415">review-scraper      serp-research       cro-dashboards      pricing-research<set attributeName="opacity" to="1" begin="4.5s"/></text>
-    <text class="h" x="36" y="437"><tspan class="out">crm                 website-cms         attendance-app      </tspan><tspan class="dim">+ 30 more, private</tspan><set attributeName="opacity" to="1" begin="4.5s"/></text>
+    <text class="h" y="393"><tspan class="out" x="36">publishing-cms</tspan><tspan class="out" x="210">content-pipeline</tspan><tspan class="out" x="384">editorial-review</tspan><tspan class="out" x="558">rank-tracker</tspan><set attributeName="opacity" to="1" begin="4.5s"/></text>
+    <text class="h" y="415"><tspan class="out" x="36">review-scraper</tspan><tspan class="out" x="210">serp-research</tspan><tspan class="out" x="384">cro-dashboards</tspan><tspan class="out" x="558">pricing-research</tspan><set attributeName="opacity" to="1" begin="4.5s"/></text>
+    <text class="h" y="437"><tspan class="out" x="36">crm</tspan><tspan class="out" x="210">website-cms</tspan><tspan class="out" x="384">attendance-app</tspan><tspan class="dim" x="558">+ 30 more, private</tspan><set attributeName="opacity" to="1" begin="4.5s"/></text>
 
     <text class="pr h" x="36" y="467">❯<set attributeName="opacity" to="1" begin="5.4s"/></text>
     <text class="cmd" x="56" y="467" clip-path="url(#c4)">git log --all --oneline | wc -l</text>
@@ -119,9 +119,9 @@
 
     <text class="pr h" x="36" y="519">❯<set attributeName="opacity" to="1" begin="8.0s"/></text>
     <text class="cmd" x="56" y="519" clip-path="url(#c5)">crontab -l</text>
-    <text class="h" x="36" y="541"><tspan class="dim">*/15 * * * *   </tspan><tspan class="key">n8n   </tspan><tspan class="out">route new leads into the crm</tspan><set attributeName="opacity" to="1" begin="8.8s"/></text>
-    <text class="h" x="36" y="563"><tspan class="dim">0 */6 * * *    </tspan><tspan class="key">make  </tspan><tspan class="out">refresh rank + content sheets</tspan><set attributeName="opacity" to="1" begin="8.8s"/></text>
-    <text class="h" x="36" y="585"><tspan class="dim">0 9 * * 1-5    </tspan><tspan class="key">n8n   </tspan><tspan class="out">publishing digest to slack</tspan><set attributeName="opacity" to="1" begin="8.8s"/></text>
+    <text class="h" y="541"><tspan class="dim" x="36">*/15 * * * *</tspan><tspan class="key" x="170">n8n</tspan><tspan class="out" x="230">route new leads into the crm</tspan><set attributeName="opacity" to="1" begin="8.8s"/></text>
+    <text class="h" y="563"><tspan class="dim" x="36">0 */6 * * *</tspan><tspan class="key" x="170">make</tspan><tspan class="out" x="230">refresh rank + content sheets</tspan><set attributeName="opacity" to="1" begin="8.8s"/></text>
+    <text class="h" y="585"><tspan class="dim" x="36">0 9 * * 1-5</tspan><tspan class="key" x="170">n8n</tspan><tspan class="out" x="230">publishing digest to slack</tspan><set attributeName="opacity" to="1" begin="8.8s"/></text>
 
     <g class="h">
       <set attributeName="opacity" to="1" begin="9.6s"/>
