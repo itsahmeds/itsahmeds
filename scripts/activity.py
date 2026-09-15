@@ -25,6 +25,13 @@ bywd = [0] * 7
 for x in days:
     bywd[x["weekday"]] += x["contributionCount"]
 pi = weeks.index(max(weeks))
+def last_push(days):
+    """Date of the most recent day with activity, as '15 sep 2026'."""
+    for x in reversed(days):
+        if x["contributionCount"] > 0:
+            y, m, d = x["date"].split("-")
+            return f"{int(d)} {MN[int(m) - 1]} {y}"
+    return ""
 out = {
     "total": cal["totalContributions"], "weeks": weeks, "months": months,
     "last30": sum(x["contributionCount"] for x in days[-30:]),
@@ -33,6 +40,7 @@ out = {
     "active": sum(1 for x in days if x["contributionCount"] > 0), "ndays": len(days),
     "peak": max(weeks), "peakIdx": pi,
     "peakMonth": MN[int(w52[pi]["contributionDays"][0]["date"][5:7]) - 1],
+    "last": last_push(days),
 }
 json.dump(out, io.open(os.path.join(ROOT, "scripts", "activity.json"), "w", encoding="utf-8"), indent=0)
 print(f"activity.json: total={out['total']} last30={out['last30']} longest={out['longest']} peak={out['peak']}")
