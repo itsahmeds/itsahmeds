@@ -11,6 +11,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: refresh-profile
+  cancel-in-progress: false
+
 jobs:
   render:
     runs-on: ubuntu-latest
@@ -33,4 +37,5 @@ jobs:
           git add assets/console.svg scripts/activity.json
           git diff --cached --quiet && echo "no change" && exit 0
           git commit -m "refresh profile"
+          git pull --rebase origin main
           git push
