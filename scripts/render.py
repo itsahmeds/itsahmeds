@@ -9,6 +9,8 @@ A = json.load(io.open(os.path.join(ROOT, "scripts", "activity.json"), encoding="
 
 MONO = "'JetBrains Mono','Cascadia Code','SF Mono','DejaVu Sans Mono',Menlo,Consolas,monospace"
 FS, LH = 13, 21            # font size, line height
+CW = FS * 0.6              # monospace advance, used only to place the chart
+CHART_ROWS = 5             # 4 rows of bars + 1 row of month labels
 PADX, PADY = 28, 26
 W = 720
 STATUS_H = 30
@@ -54,16 +56,6 @@ def blank(): L()
 def cmd(tool, rest=""):
     L(("~ $ ", "dim"), (tool, "acc"), (rest, "bright"))
 
-def spark(weeks):
-    blocks = "▁▂▃▄▅▆▇█"
-    mx = max(weeks) or 1
-    out = []
-    for w in weeks:
-        lvl = 0 if w == 0 else max(1, math.ceil(w / mx * 8))
-        out.append(blocks[max(lvl - 1, 0)])
-    pi = weeks.index(mx)
-    return "".join(out[:pi]), out[pi], "".join(out[pi + 1:])
-
 def bar12(c, mx):
     n = c / mx * 12
     full = int(n)
@@ -87,9 +79,7 @@ L(("commits  ", "dim"), (f"{A['total']:,}", "b"), ("   repos  ", "dim"), (str(RE
   (f" ({PRIVATE} private)", "dim"), ("   streak  ", "dim"), (f"{A['longest']}d", "b"),
   ("   active  ", "dim"), (str(A["active"]), "b"), (f"/{A['ndays']} days", "dim"))
 blank()
-pre, pk, post = spark(A["weeks"])
-L(("52w      ", "dim"), (pre, "fg"), (pk, "acc"), (post, "fg"), ("  peak ", "dim"), (str(A["peak"]), "b"), ("/wk", "dim"))
-L((" " * (9 + len(A["weeks"]) - 6) + "now ─┘", "dim"))
+lines.append(dict(segs=[], size=FS, gap=0, chart=True))   # the 52-week chart, CHART_ROWS lines tall
 L((f"# regenerated every 6h by a github action. last push {A.get('last', '')}.", "dim"))
 blank()
 
@@ -140,11 +130,56 @@ FILL = dict(fg=C["fg"], bright=C["bright"], dim=C["dim"], faint=C["faint"], acc=
             b=C["bright"], name=C["bright"], cursor=C["acc"])
 BOLD = {"b", "name"}
 
+
+def chart(top):
+    """52 weekly bars on a square-root scale. Grows in once, then the current week pulses."""
+    import math
+    weeks = A["weeks"]; n = len(weeks); mx = max(weeks) or 1
+    x0 = PADX + 9 * CW                      # after the "52w" gutter
+    pitch = CW; bw = pitch - 2
+    base = top + 4 * LH - 6                 # baseline of the bars
+    hmax = 4 * LH - 14
+    pi = weeks.index(mx)
+    g = [f'<text x="{PADX}" y="{top + FS}" font-family="{MONO}" font-size="{FS}" fill="{C["dim"]}">52w</text>',
+         f'<circle cx="{PADX + 4.5 * CW:.1f}" cy="{top + FS - 4}" r="2.4" fill="{C["acc"]}">'
+         f'<animate attributeName="opacity" values="1;1;0.15;0.15;1" keyTimes="0;0.45;0.5;0.95;1" dur="2s" repeatCount="indefinite"/></circle>',
+         f'<text x="{PADX + 5.5 * CW:.1f}" y="{top + FS}" font-family="{MONO}" font-size="11" fill="{C["acc"]}">live</text>',
+         f'<line x1="{x0:.1f}" y1="{base + 0.5}" x2="{x0 + n * pitch:.1f}" y2="{base + 0.5}" stroke="{C["faint"]}"/>',
+         # peak gridline and label
+         f'<line x1="{x0:.1f}" y1="{base - hmax + 0.5}" x2="{x0 + n * pitch:.1f}" y2="{base - hmax + 0.5}" stroke="{C["faint"]}" stroke-dasharray="2 4"/>',
+         f'<text x="{x0 + n * pitch + 2 * CW:.1f}" y="{base - hmax + 4}" xml:space="preserve" font-family="{MONO}" font-size="{FS}">'
+         f'<tspan fill="{C["dim"]}">peak </tspan><tspan fill="{C["bright"]}" font-weight="700">{mx}</tspan><tspan fill="{C["dim"]}">/wk</tspan></text>',
+         f'<text x="{x0 + n * pitch + 2 * CW:.1f}" y="{base}" font-family="{MONO}" font-size="11" fill="{C["dim"]}">√ scale</text>']
+    for i, w in enumerate(weeks):
+        h = 0 if w == 0 else max(2, hmax * math.sqrt(w / mx))
+        x = x0 + i * pitch
+        fill = C["acc"] if i == pi else (C["bright"] if i == n - 1 else C["fg"])
+        op = "1" if i >= n - 1 or i == pi else "0.75"
+        if h == 0:
+            g.append(f'<rect x="{x:.1f}" y="{base - 1}" width="{bw:.1f}" height="1" fill="{C["faint"]}"/>')
+            continue
+        b = 0.15 + i * 0.018
+        r = (f'<rect x="{x:.1f}" y="{base - h:.1f}" width="{bw:.1f}" height="{h:.1f}" fill="{fill}" opacity="{op}">'
+             f'<animate attributeName="height" from="0" to="{h:.1f}" dur="0.45s" begin="{b:.2f}s" fill="freeze" calcMode="spline" keySplines="0.2 0.7 0.2 1"/>'
+             f'<animate attributeName="y" from="{base}" to="{base - h:.1f}" dur="0.45s" begin="{b:.2f}s" fill="freeze" calcMode="spline" keySplines="0.2 0.7 0.2 1"/>')
+        if i == n - 1:
+            r += f'<animate attributeName="opacity" values="1;0.35;1" dur="1.6s" begin="{b + 0.5:.2f}s" repeatCount="indefinite"/>'
+        g.append(r + '</rect>')
+    # month labels under the baseline
+    for idx, name in A["months"]:
+        if idx == 0 and len(A["months"]) > 1 and A["months"][1][0] < 3: continue   # partial first month
+        g.append(f'<text x="{x0 + idx * pitch:.1f}" y="{base + 15}" font-family="{MONO}" font-size="10" fill="{C["dim"]}">{name}</text>')
+    return "".join(g)
+
 def render():
     y = PADY + FS + 2
     out = []
     for ln in lines:
         size = ln["size"]
+        if ln.get("chart"):
+            out.append(chart(y - FS))
+            y += CHART_ROWS * LH
+            continue
         if ln["segs"]:
             y += (size - FS)  # taller lines push their baseline down
             t = [f'<text x="{PADX}" y="{y}" xml:space="preserve" font-family="{MONO}" font-size="{size}" fill="{C["fg"]}">']
