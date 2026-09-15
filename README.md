@@ -1,14 +1,3 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/mark-dark.svg">
-  <img alt="Ahmed Hameed, software engineer by degree, marketer by trade. 1,824 commits in the last twelve months across 40 repositories, 36 of them private." src="assets/mark-light.svg" width="100%">
-</picture>
+<img src="assets/hero.svg" width="100%" alt="Ahmed Hameed. Software engineering by degree, marketer by trade. I build things and I solve problems. 1,824 commits in the last twelve months across 40 repositories, 36 private. A perspective console with live activity, metrics, an automation log and the spec-driven delivery loop.">
 
-I build things and I solve problems.
-
-I work in growth and SEO, but my degree is in software engineering, so when the eng backlog is full I just go and build the thing myself. Content pipelines, crawlers, a CRM, dashboards, a headless CMS, an AI reviewer that grades drafts before an editor sees them.
-
-I write a spec before anything gets built, agents do most of the typing, and n8n and Make run whatever has to keep running afterwards.
-
-`next.js` `typescript` `python` `fastapi` `postgres` `n8n` `make.com` `claude code`
-
-[ahmedsheikh2654@gmail.com](mailto:ahmedsheikh2654@gmail.com) · [linkedin](https://www.linkedin.com/in/ahmed-hameed-037676253/)
+<img src="assets/body.svg" width="100%" alt="What I have shipped: content operations platform, headless cms, vendor review platform, ai editorial review, cro dashboards, rank tracker, publishing control system, review crawlers, multi-tenant crm, ai-search visibility. Range, reliability and ai layer. SDD, spec-driven development, twenty skills in three groups. In every repo: typed end to end, secret scanning, commit hooks, dependency bots, error tracking, performance budgets, a runbook per job. Contact ahmedsheikh2654@gmail.com.">

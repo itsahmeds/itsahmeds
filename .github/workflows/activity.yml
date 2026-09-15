@@ -1,4 +1,4 @@
-name: refresh activity
+name: refresh profile
 
 on:
   schedule:
@@ -12,21 +12,25 @@ permissions:
   contents: write
 
 jobs:
-  build:
+  render:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-      - run: node scripts/mark.mjs
+      - name: fetch contributions
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh api graphql -f query='{ user(login:"itsahmeds"){ contributionsCollection { contributionCalendar {
+            totalContributions weeks { contributionDays { date contributionCount weekday } } } } } }' > scripts/raw.json
+      - name: render svgs
+        run: |
+          python3 scripts/activity.py scripts/raw.json
+          python3 scripts/render.py
       - name: commit if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/mark-light.svg assets/mark-dark.svg
+          git add assets/hero.svg assets/body.svg scripts/activity.json
           git diff --cached --quiet && echo "no change" && exit 0
-          git commit -m "refresh activity"
+          git commit -m "refresh profile"
           git push
