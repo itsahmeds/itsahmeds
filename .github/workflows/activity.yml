@@ -30,11 +30,12 @@ jobs:
         run: |
           python3 scripts/activity.py scripts/raw.json
           python3 scripts/render.py
+          python3 scripts/render.py --light
       - name: commit if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/console.svg scripts/activity.json
+          git add assets/console.svg assets/console-light.svg scripts/activity.json
           git diff --cached --quiet && echo "no change" && exit 0
           git commit -m "refresh profile"
           git pull --rebase origin main
