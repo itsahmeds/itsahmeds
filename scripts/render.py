@@ -61,21 +61,11 @@ def blank(): L()
 def cmd(tool, rest=""):
     L(("~ $ ", "dim"), (tool, "acc"), (rest, "bright"))
 
-def bar12(c, mx):
-    n = c / mx * 12
-    full = int(n)
-    if full == 0:
-        return "▌", "░" * 11
-    return "█" * full, "░" * (12 - full)
-
 # whoami
 cmd("whoami")
 L((NAME, "name"), size=20, gap=6)
 L(ROLE)
 L(LEDE)
-blank()
-L(("# a spec before anything gets built, agents do most of the typing,", "dim"))
-L(("# n8n and make run whatever has to keep running afterwards.", "dim"))
 blank()
 
 # stats
@@ -89,12 +79,10 @@ L((f"# regenerated every 6h by a github action. last push {A.get('last', '')}.",
 blank()
 
 # shipped
-cmd("ahmed", " ls shipped --sort commits")
-L(("commits".ljust(20) + "repo".ljust(22) + "what it does", "dim"))
-mx = max(c for _, _, c in BUILT)
+cmd("ahmed", " ls shipped")
+L(("repo".ljust(22) + "what it does", "dim"))
 for n, d, c in BUILT:
-    full, rest = bar12(c, mx)
-    L((f"{c:>5} ", "b"), (full, "fg"), (rest, "faint"), ("  ", "fg"), (n.ljust(20), "bright"), ("  " + d, "fg"))
+    L((n.ljust(20), "bright"), ("  " + d, "fg"))
 blank()
 for a in ALSO: L((a, "dim"))
 blank()
@@ -216,7 +204,7 @@ def render():
 
     label = (f"{NAME}. {ROLE}. {LEDE} {A['total']:,} commits in the last twelve months across {REPOS} repositories, "
              f"{PRIVATE} private, longest streak {A['longest']} days, peak week {A['peak']}. Shipped: "
-             + "; ".join(f"{n}, {d}, {c} commits" for n, d, c in BUILT) + ". "
+             + "; ".join(f"{n}, {d}" for n, d, c in BUILT) + ". "
              + " ".join(COLS_LABEL for COLS_LABEL in (f"{t}: {', '.join(i)}." for t, i in COLS))
              + " spec-driven development, twenty skills: foundation runs once, delivery repeats, some any time."
              + " in every repo: " + ", ".join(HYG) + ".")
