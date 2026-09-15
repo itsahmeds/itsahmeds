@@ -15,8 +15,13 @@ PADX, PADY = 28, 26
 W = 720
 STATUS_H = 30
 
-C = dict(bg="#0C0E12", border="#1F242C", fg="#C6CBD3", bright="#F1F3F6", dim="#5B6370",
-         faint="#2A2F38", acc="#6FD48F", accbg="#16241C", status="#11141A")
+DARK = dict(bg="#0C0E12", border="#1F242C", fg="#C6CBD3", bright="#F1F3F6", dim="#5B6370",
+            faint="#2A2F38", acc="#6FD48F", accbg="#16241C", status="#11141A")
+LIGHT = dict(bg="#FBFBF9", border="#DDDFDA", fg="#3A404A", bright="#111418", dim="#8B929C",
+             faint="#E3E5E0", acc="#1E8A57", accbg="#E2F3E8", status="#F2F3EF")
+import sys
+C = LIGHT if "--light" in sys.argv else DARK
+OUT = "console-light.svg" if "--light" in sys.argv else "console.svg"
 
 # ---------------------------------------------------------------- content
 NAME, ROLE = "ahmed hameed", "software engineering by degree, marketer by trade"
@@ -227,6 +232,6 @@ def render():
 if __name__ == "__main__":
     os.makedirs(os.path.join(ROOT, "assets"), exist_ok=True)
     s = render()
-    io.open(os.path.join(ROOT, "assets", "console.svg"), "w", encoding="utf-8", newline="\n").write(s)
+    io.open(os.path.join(ROOT, "assets", OUT), "w", encoding="utf-8", newline="\n").write(s)
     h = s.split('height="', 1)[1].split('"', 1)[0]
-    print(f"console.svg  {W}x{h}  {len(s.encode('utf-8')) // 1024} KB  {len(lines)} lines")
+    print(f"{OUT}  {W}x{h}  {len(s.encode('utf-8')) // 1024} KB  {len(lines)} lines")
