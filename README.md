@@ -1,10 +1,14 @@
-<img src="assets/activity.svg" width="100%" alt="Ahmed Hameed. Live activity board: contributions per week over the last 52 weeks, totals for the last 365 and 30 days, current and longest streak, busiest weekday, this week day by day, then stack and work. Regenerated every six hours by a GitHub Action from the contributions API.">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/mark-dark.svg">
+  <img alt="Ahmed Hameed, software engineer by degree, marketer by trade. 1,824 commits in the last twelve months across 40 repositories, 36 of them private." src="assets/mark-light.svg" width="100%">
+</picture>
 
 I build things and I solve problems.
 
-<p>
-  <a href="mailto:ahmedsheikh2654@gmail.com"><img src="assets/btn-mail.svg" width="300" alt="email ahmedsheikh2654@gmail.com"></a>
-  <a href="https://www.linkedin.com/in/ahmed-hameed-037676253/"><img src="assets/btn-linkedin.svg" width="300" alt="linkedin in/ahmed-hameed"></a>
-</p>
+I work in growth and SEO, but my degree is in software engineering, so when the eng backlog is full I just go and build the thing myself. Content pipelines, crawlers, a CRM, dashboards, a headless CMS, an AI reviewer that grades drafts before an editor sees them.
 
-<sub><a href="scripts/build.mjs">how this page draws itself</a></sub>
+I write a spec before anything gets built, agents do most of the typing, and n8n and Make run whatever has to keep running afterwards.
+
+`next.js` `typescript` `python` `fastapi` `postgres` `n8n` `make.com` `claude code`
+
+[ahmedsheikh2654@gmail.com](mailto:ahmedsheikh2654@gmail.com) · [linkedin](https://www.linkedin.com/in/ahmed-hameed-037676253/)

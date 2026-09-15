@@ -19,14 +19,14 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - run: node scripts/build.mjs
+      - run: node scripts/mark.mjs
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: commit if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/activity.svg
+          git add assets/mark-light.svg assets/mark-dark.svg
           git diff --cached --quiet && echo "no change" && exit 0
           git commit -m "refresh activity"
           git push
