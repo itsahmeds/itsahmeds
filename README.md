@@ -1,3 +1,9 @@
 <img src="assets/hero.svg" width="100%" alt="Ahmed Hameed. Software engineering by degree, marketer by trade. I build things and I solve problems. 1,824 commits in the last twelve months across 40 repositories, 36 private. A perspective console with live activity, metrics, an automation log and the spec-driven delivery loop.">
 
 <img src="assets/body.svg" width="100%" alt="What I have shipped: content operations platform, headless cms, vendor review platform, ai editorial review, cro dashboards, rank tracker, publishing control system, review crawlers, multi-tenant crm, ai-search visibility. Range, reliability and ai layer. SDD, spec-driven development, twenty skills in three groups. In every repo: typed end to end, secret scanning, commit hooks, dependency bots, error tracking, performance budgets, a runbook per job. Contact ahmedsheikh2654@gmail.com.">
+
+<p align="center">
+  <a href="mailto:ahmedsheikh2654@gmail.com">ahmedsheikh2654@gmail.com</a>
+  &nbsp;·&nbsp;
+  <a href="https://www.linkedin.com/in/ahmed-hameed-037676253/">linkedin.com/in/ahmed-hameed</a>
+</p>
