@@ -1,5 +1,5 @@
 {
-"total": 1908,
+"total": 1904,
 "weeks": [
 0,
 0,
@@ -112,7 +112,7 @@
 "longest": 19,
 "busiest": "wed",
 "active": 135,
-"ndays": 365,
+"ndays": 366,
 "peak": 227,
 "peakIdx": 49,
 "peakMonth": "sep",
