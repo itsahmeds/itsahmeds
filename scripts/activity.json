@@ -1,5 +1,5 @@
 {
-"total": 2621,
+"total": 2635,
 "weeks": [
 0,
 0,
@@ -52,7 +52,7 @@
 204,
 297,
 133,
-83
+97
 ],
 "months": [
 [
@@ -108,9 +108,9 @@
 "oct"
 ]
 ],
-"last30": 801,
+"last30": 815,
 "longest": 19,
-"busiest": "fri",
+"busiest": "wed",
 "active": 153,
 "ndays": 368,
 "peak": 297,
