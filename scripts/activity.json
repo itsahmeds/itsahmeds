@@ -1,5 +1,5 @@
 {
-"total": 3420,
+"total": 3426,
 "weeks": [
 0,
 0,
@@ -52,7 +52,7 @@
 81,
 155,
 134,
-13
+19
 ],
 "months": [
 [
@@ -108,13 +108,13 @@
 "nov"
 ]
 ],
-"last30": 655,
+"last30": 607,
 "longest": 19,
 "busiest": "wed",
-"active": 180,
-"ndays": 367,
+"active": 181,
+"ndays": 368,
 "peak": 351,
 "peakIdx": 47,
 "peakMonth": "oct",
-"last": "17 nov 2026"
+"last": "18 nov 2026"
 }
